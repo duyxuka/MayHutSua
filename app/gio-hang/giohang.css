@@ -1,0 +1,218 @@
+.totalPrice::before {
+  background-color: transparent;
+}
+
+/* ===== VOUCHER TRANG GIỎ HÀNG ===== */
+.cart-voucher-wrap {
+  border: 1px solid #ffe0db;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  background: #fff9f8;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cart-voucher-header {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ee4d2d;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cart-voucher-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 10px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
+}
+
+.cart-voucher-list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.cart-voucher-list::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+.cart-voucher-item {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border: 1px dashed #ee4d2d;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 260px;
+  min-width: 260px;
+  height: 62px;
+}
+
+.cart-voucher-item.cvi-highlight {
+  border-color: #f59e0b;
+}
+
+.cvi-left {
+  width: 7px;
+  min-width: 7px;
+  background: #ee4d2d;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.cvi-left::before,
+.cvi-left::after {
+  content: '';
+  position: absolute;
+  left: -4px;
+  width: 8px;
+  height: 8px;
+  background: #fff9f8;
+  border-radius: 50%;
+}
+
+.cvi-left::before {
+  top: calc(50% - 8px);
+}
+
+.cvi-left::after {
+  top: calc(50% + 2px);
+}
+
+.cart-voucher-item.cvi-highlight .cvi-left {
+  background: #f59e0b;
+}
+
+.cvi-body {
+  flex: 1;
+  padding: 8px 10px;
+  min-width: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+}
+
+.cvi-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ee4d2d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cart-voucher-item.cvi-highlight .cvi-title {
+  color: #d97706;
+}
+
+.cvi-desc {
+  font-size: 11px;
+  color: #aaa;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cvi-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 10px;
+  border-left: 1px dashed #eee;
+  flex-shrink: 0;
+  width: 64px;
+}
+
+.cvi-code {
+  font-size: 10px;
+  font-weight: 600;
+  color: #555;
+  background: #f5f5f5;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-family: monospace;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  text-align: center;
+}
+
+.cvi-btn {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid #ee4d2d;
+  background: transparent;
+  color: #ee4d2d;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s;
+  padding: 0;
+  flex-shrink: 0;
+}
+
+.cvi-btn:hover {
+  background: #ee4d2d;
+  color: #fff;
+}
+
+.cvi-btn:disabled,
+.cvi-btn.saved {
+  border-color: #ddd;
+  color: #bbb;
+  background: transparent;
+  cursor: default;
+}
+
+.cvi-btn:disabled:hover,
+.cvi-btn.saved:hover {
+  background: transparent;
+  color: #bbb;
+}
+
+.cart-voucher-item.cvi-highlight .cvi-btn {
+  border-color: #f59e0b;
+  color: #d97706;
+}
+
+.cart-voucher-item.cvi-highlight .cvi-btn:hover {
+  background: #f59e0b;
+  color: #fff;
+}
+
+/* Fix table td không bị ép nhỏ */
+.actions {
+  padding: 16px 0 !important;
+}
+
+@media (max-width: 768px) {
+  .cart-voucher-item {
+    width: 220px;
+    min-width: 220px;
+  }
+}
+
+.addcart {
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

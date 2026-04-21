@@ -1,0 +1,471 @@
+
+.fb-comment-section {
+    margin-top: 2rem;
+    border: 1px solid #e4e6eb;
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.fb-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1c1e21;
+    margin-bottom: 1rem;
+}
+
+.fb-divider {
+    height: 1px;
+    background: #e4e6eb;
+    margin: 8px 0;
+}
+
+.fb-empty {
+    font-size: 14px;
+    color: #65676b;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+/* ============================================================
+   COMMENT WRAP
+   ============================================================ */
+
+.fb-comment-wrap {
+    padding: 3px 0;
+}
+
+.fb-comment-wrap:not(.is-reply) {
+    margin-bottom: 4px;
+}
+
+/* ============================================================
+   COMMENT ROW: [avatar-wrap | body]
+   ============================================================ */
+
+.fb-comment-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+/* ============================================================
+   AVATAR WRAP — chỉ giữ avatar, không chứa đường dọc nữa
+   ============================================================ */
+
+.fb-avatar-wrap {
+    width: 36px;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.fb-avatar-wrap.sm {
+    width: 28px;
+}
+
+/* ============================================================
+   AVATAR
+   ============================================================ */
+
+.fb-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    user-select: none;
+    position: relative;
+    z-index: 1;
+}
+
+.fb-avatar.av-sm {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+}
+
+.fb-avatar.av-0 {
+    background: #dce8f7;
+    color: #0a66c2;
+}
+
+.fb-avatar.av-1 {
+    background: #d4f0e5;
+    color: #065f46;
+}
+
+.fb-avatar.av-2 {
+    background: #fde9d3;
+    color: #92400e;
+}
+
+.fb-avatar.av-3 {
+    background: #ede8fb;
+    color: #4c1d95;
+}
+
+.fb-avatar.av-4 {
+    background: #fde8ec;
+    color: #9f1239;
+}
+
+/* ============================================================
+   BODY
+   ============================================================ */
+
+.fb-comment-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.fb-replies-wrap {
+    position: relative;
+    padding-left: 36px;
+    margin-top: 4px;
+}
+
+/* Đường DỌC chính */
+.fb-replies-wrap::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    /* tim avatar cha (36px / 2 = 18px) - 1px (nửa độ dày đường) = 17px */
+    left: 17px;
+    width: 2px;
+    /* dừng cách bottom 14px = tim avatar reply cuối (28px / 2 = 14px) */
+    bottom: 14px;
+    background: #ced0d4;
+    border-radius: 1px;
+}
+
+.fb-comment-wrap.is-reply>.fb-comment-row {
+    position: relative;
+}
+
+.fb-comment-wrap.is-reply>.fb-comment-row::before {
+    content: '';
+    position: absolute;
+    left: -19px;
+    top: 3px;
+    /* offset nhỏ để bắt đầu từ đường dọc */
+    width: 15px;
+    height: 16px;
+    /* chạm đến tim avatar reply (28px / 2 = 14px) */
+    border-left: 2px solid #ced0d4;
+    border-bottom: 2px solid #ced0d4;
+    border-bottom-left-radius: 8px;
+    pointer-events: none;
+}
+
+/* ============================================================
+   BUBBLE
+   ============================================================ */
+
+.fb-bubble {
+    position: relative;
+    background: #f0f2f5;
+    border-radius: 18px;
+    padding: 8px 38px 8px 14px;
+    display: inline-block;
+    max-width: 100%;
+    word-break: break-word;
+}
+
+.fb-bubble .fb-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: #050505;
+    margin-bottom: 2px;
+}
+
+.fb-bubble .fb-text {
+    font-size: 14px;
+    color: #1c1e21;
+    line-height: 1.5;
+    white-space: pre-wrap;
+}
+
+.fb-bubble .fb-date {
+    font-size: 11px;
+    color: #65676b;
+    margin-top: 4px;
+}
+
+/* ============================================================
+   NÚT ···
+   ============================================================ */
+
+.fb-more-btn {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 700;
+    color: #65676b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    letter-spacing: 1px;
+    transition: background 0.15s;
+    padding: 0;
+}
+
+.fb-more-btn:hover {
+    background: #d8dadf;
+}
+
+/* ============================================================
+   DROPDOWN
+   ============================================================ */
+
+.fb-dropdown {
+    position: absolute;
+    top: 34px;
+    right: 4px;
+    background: #ffffff;
+    border: 1px solid #e4e6eb;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 100;
+    min-width: 150px;
+    overflow: hidden;
+}
+
+.fb-dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    color: #1c1e21;
+    cursor: pointer;
+    transition: background 0.1s;
+}
+
+.fb-dropdown-item:hover {
+    background: #f0f2f5;
+}
+
+.fb-dropdown-item.danger {
+    color: #e02424;
+}
+
+.fb-dropdown-item.danger:hover {
+    background: #fff5f5;
+}
+
+/* ============================================================
+   ACTIONS
+   ============================================================ */
+
+.fb-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 3px;
+    padding-left: 10px;
+}
+
+.fb-act {
+    font-size: 12px;
+    font-weight: 600;
+    color: #65676b;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 2px 0;
+    transition: color 0.15s;
+}
+
+.fb-act:hover {
+    color: #050505;
+    text-decoration: underline;
+}
+
+.fb-act.liked {
+    color: #0866ff;
+}
+
+.fb-like-count {
+    font-size: 12px;
+    color: #65676b;
+}
+
+.fb-dot {
+    font-size: 10px;
+    color: #bcc0c4;
+}
+
+/* ============================================================
+   TOGGLE REPLIES
+   ============================================================ */
+
+.fb-reply-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #65676b;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 3px 10px;
+    margin-top: 2px;
+    border-radius: 6px;
+    transition: background 0.15s, color 0.15s;
+}
+
+.fb-reply-toggle:hover {
+    background: #e4e6eb;
+    color: #050505;
+}
+
+.fb-chevron {
+    display: inline-block;
+    transition: transform 0.2s ease;
+    font-size: 11px;
+}
+
+.fb-chevron.open {
+    transform: rotate(180deg);
+}
+
+/* ============================================================
+   INPUT ROW
+   ============================================================ */
+
+.fb-input-row {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+}
+
+.fb-textarea {
+    flex: 1;
+    background: #f0f2f5;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 14px;
+    color: #1c1e21;
+    font-family: inherit;
+    resize: none;
+    outline: none;
+    min-height: 36px;
+    max-height: 120px;
+    overflow-y: auto;
+    line-height: 1.4;
+    transition: border-color 0.15s, background 0.15s;
+}
+
+.fb-textarea:focus {
+    background: #ffffff;
+    border-color: #0866ff;
+}
+
+.fb-textarea::placeholder {
+    color: #8a8d91;
+}
+
+/* ============================================================
+   NÚT GỬI
+   ============================================================ */
+
+.fb-send-btn {
+    width: 34px;
+    height: 34px;
+    min-width: 34px;
+    border-radius: 50%;
+    background: #0866ff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.35;
+    transition: opacity 0.15s, transform 0.1s;
+    padding: 0;
+}
+
+.fb-send-btn.active {
+    opacity: 1;
+}
+
+.fb-send-btn.active:hover {
+    transform: scale(1.08);
+}
+
+.fb-send-btn svg {
+    width: 15px;
+    height: 15px;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 576px) {
+    .fb-avatar {
+        width: 32px;
+        height: 32px;
+        font-size: 13px;
+    }
+
+    .fb-avatar.av-sm {
+        width: 26px;
+        height: 26px;
+        font-size: 11px;
+    }
+
+    .fb-avatar-wrap {
+        width: 32px;
+    }
+
+    .fb-avatar-wrap.sm {
+        width: 26px;
+    }
+
+    .fb-replies-wrap {
+        padding-left: 28px;
+    }
+
+    .fb-replies-wrap::before {
+        left: 13px;
+        /* tim avatar 32px / 2 - 1 = 15px, nhưng padding-left=28 nên: 28-15=13 */
+    }
+
+    .fb-comment-wrap.is-reply>.fb-comment-row::before {
+        left: -15px;
+        width: 11px;
+    }
+}
+
+.recent-post .media-img:after{
+    display: none;
+}
+.widget{
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.fb-comment-section{
+    background-color: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.blog-content{
+    background-color: white !important;
+    padding: 30px !important;
+    border-radius: 20px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

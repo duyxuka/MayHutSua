@@ -6,6 +6,7 @@ import { useAuth } from '@/context/AuthContext';
 import { getListAllVouchers, getMyVouchers, nhanVoucher } from '@/lib/api';
 import { getImageUrl } from '@/lib/config';
 import toast from 'react-hot-toast';
+import './giohang.css';
 
 function voucherScopeClass(phamVi: number) {
   if (phamVi === 1) return 'scope-shop';

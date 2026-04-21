@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { resetPassword } from '@/lib/api';
 import toast from 'react-hot-toast';
+import './resetpassword.css';
 
 function ResetPasswordForm() {
   const searchParams = useSearchParams();

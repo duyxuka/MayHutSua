@@ -6,6 +6,7 @@ import { useAuth } from '@/context/AuthContext';
 import { getMyVouchersWithStatus, validateVoucher, createDonHang, createPayment, getPendingVnpayOrder, cancelPendingOrder } from '@/lib/api';
 import { getImageUrl } from '@/lib/config';
 import toast from 'react-hot-toast';
+import './thanhtoan.css';
 
 function voucherScopeClass(p: number) { return p === 1 ? 'scope-shop' : p === 2 ? 'scope-product' : p === 3 ? 'scope-cat' : ''; }
 function voucherIcon(l: number) { return l === 1 ? 'fa-regular fa-ticket-perforated' : l === 2 ? 'fa-regular fa-truck' : l === 3 ? 'fa-regular fa-rotate-left' : 'fa-regular fa-ticket'; }

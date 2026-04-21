@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { login, forgotPassword } from '@/lib/api';
 import toast from 'react-hot-toast';
+import styles from './dangnhap.module.css';
 
 export default function DangNhapPage() {
   const { saveTokens } = useAuth();
@@ -76,10 +77,10 @@ export default function DangNhapPage() {
 
                 <div className="form-group">
                   <label>Mật khẩu <span className="text-danger">*</span></label>
-                  <div className="password-input">
+                  <div className={styles['password-input']}>
                     <input type={showPassword ? 'text' : 'password'} className="form-control" placeholder="Nhập mật khẩu"
                       value={form.password} onChange={e => set('password', e.target.value)} onBlur={() => touch('password')} />
-                    <button type="button" className="eye-btn" onClick={() => setShowPassword(v => !v)}>
+                    <button type="button" className={styles['eye-btn']} onClick={() => setShowPassword(v => !v)}>
                       <i className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
                     </button>
                   </div>

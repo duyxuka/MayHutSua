@@ -171,6 +171,9 @@ export const getListFilterTinTuc = (filter: { keyword?: string; skipCount: numbe
   return apiFetch<{ items: any[]; totalCount: number }>(`${API_URL}tin-tucs/filter?${params}`);
 };
 
+export const getTinTucList = (skipCount = 0, maxResultCount = 10) =>
+  apiFetch<any>(`${API_URL}tin-tucs/filter?skipCount=${skipCount}&maxResultCount=${maxResultCount}`);
+
 export const getTinTucBySlug = (slug: string) =>
   apiFetch<any>(`${API_URL}tin-tucs/by-slug/?slug=${slug}`);
 

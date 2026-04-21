@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/context/AuthContext';
 import { register, login } from '@/lib/api';
 import toast from 'react-hot-toast';
+import styles from './dangky.module.css';
 
 export default function DangKyPage() {
   const router = useRouter();
@@ -103,10 +104,10 @@ export default function DangKyPage() {
 
                 <div className="form-group col-lg-6">
                   <label>Mật khẩu <span className="text-danger">*</span></label>
-                  <div className="password-input">
+                  <div className={styles['password-input']}>
                     <input type={showPassword ? 'text' : 'password'} className="form-control" placeholder="Nhập mật khẩu"
                       value={form.password} onChange={e => set('password', e.target.value)} onBlur={() => touch('password')} />
-                    <button type="button" className="eye-btn" onClick={() => setShowPassword(v => !v)}>
+                    <button type="button" className={styles['eye-btn']} onClick={() => setShowPassword(v => !v)}>
                       <i className={`fa ${showPassword ? 'fa-eye-slash' : 'fa-eye'}`}></i>
                     </button>
                   </div>
@@ -115,10 +116,10 @@ export default function DangKyPage() {
 
                 <div className="form-group col-lg-6">
                   <label>Xác nhận mật khẩu <span className="text-danger">*</span></label>
-                  <div className="password-input">
+                  <div className={styles['password-input']}>
                     <input type={showConfirm ? 'text' : 'password'} className="form-control" placeholder="Nhập lại mật khẩu"
                       value={form.confirmPassword} onChange={e => set('confirmPassword', e.target.value)} onBlur={() => touch('confirmPassword')} />
-                    <button type="button" className="eye-btn" onClick={() => setShowConfirm(v => !v)}>
+                    <button type="button" className={styles['eye-btn']} onClick={() => setShowConfirm(v => !v)}>
                       <i className={`fa ${showConfirm ? 'fa-eye-slash' : 'fa-eye'}`}></i>
                     </button>
                   </div>

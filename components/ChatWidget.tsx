@@ -5,6 +5,7 @@ import { useAuth } from '@/context/AuthContext';
 import { createConversation, getMessages } from '@/lib/api';
 import { BASE_URL } from '@/lib/config';
 import { getAccessToken, getUserIdFromToken } from '@/lib/auth';
+import './ChatWidget.css';
 
 interface Msg { role: 'user' | 'assistant'; content: string; isStreaming?: boolean; }
 

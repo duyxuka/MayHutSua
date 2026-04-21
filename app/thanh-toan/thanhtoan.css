@@ -1,0 +1,432 @@
+.khuyendung {
+  display: inline-block;
+  padding: .35em .65em;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: .25rem;
+  background-color: #ed0676 !important;
+  font-size: 11px;
+}
+
+/* ===== VOUCHER THANH TOÁN ===== */
+.woocommerce-form-coupon {
+  border: 1px solid #f0f0f0;
+  border-radius: 10px;
+  padding: 14px 16px;
+  background: #fff;
+  margin-bottom: 16px;
+}
+
+/* Ô nhập mã */
+.voucher-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+}
+
+.voucher-input-field {
+  flex: 1;
+  border: none;
+  background: transparent;
+  outline: none;
+  font-size: 13px;
+  color: #333;
+}
+
+.voucher-input-field::placeholder {
+  color: #bbb;
+}
+
+.voucher-apply-btn {
+  font-size: 12px;
+  font-weight: 500;
+  color: #ee4d2d;
+  background: transparent;
+  border: 1px solid #ee4d2d;
+  border-radius: 4px;
+  padding: 4px 12px;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.voucher-apply-btn:hover {
+  background: #ee4d2d;
+  color: #fff;
+}
+
+/* Tag voucher đang dùng */
+.selected-voucher-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #fff2f0;
+  border: 1px solid #ffccc7;
+  border-radius: 20px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #ee4d2d;
+  margin-bottom: 10px;
+}
+
+.sv-discount {
+  font-weight: 600;
+  color: #52c41a;
+}
+
+.sv-remove {
+  background: transparent;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  padding: 0;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  transition: color 0.15s;
+}
+
+.sv-remove:hover {
+  color: #ee4d2d;
+}
+
+/* Header */
+.cvl-header {
+  font-size: 12px;
+  font-weight: 500;
+  color: #888;
+  margin-bottom: 8px;
+}
+
+/* Danh sách cuộn ngang */
+.checkout-voucher-list {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #ddd transparent;
+}
+
+.checkout-voucher-list::-webkit-scrollbar {
+  height: 3px;
+}
+
+.checkout-voucher-list::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/* Card voucher */
+.checkout-voucher-item {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border: 1px dashed #ee4d2d;
+  border-radius: 6px;
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 230px;
+  min-width: 230px;
+  height: auto;
+  /* bỏ fixed height, tự co giãn theo nội dung */
+  min-height: 72px;
+  /* đảm bảo tối thiểu */
+  transition: box-shadow 0.15s;
+}
+
+.checkout-voucher-item:hover {
+  box-shadow: 0 2px 8px rgba(238, 77, 45, 0.1);
+}
+
+.checkout-voucher-item.cvo-highlight {
+  border-color: #f59e0b;
+}
+
+.checkout-voucher-item.cvo-selected {
+  border-style: solid;
+  border-color: #52c41a;
+  background: #f6ffed;
+}
+
+/* Stripe */
+.cvo-stripe {
+  width: 6px;
+  min-width: 6px;
+  background: #ee4d2d;
+  flex-shrink: 0;
+  align-self: stretch;
+  /* kéo dài hết chiều cao card */
+}
+
+.cvo-highlight .cvo-stripe {
+  background: #f59e0b;
+}
+
+.cvo-selected .cvo-stripe {
+  background: #52c41a;
+}
+
+/* Body */
+.cvo-body {
+  flex: 1;
+  padding: 10px 10px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 3px;
+  overflow: hidden;
+}
+
+.cvo-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #ee4d2d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.cvo-highlight .cvo-title {
+  color: #d97706;
+}
+
+.cvo-selected .cvo-title {
+  color: #389e0d;
+}
+
+.cvo-desc {
+  font-size: 11px;
+  color: #999;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.4;
+}
+
+.cvo-code {
+  font-size: 10px;
+  font-weight: 600;
+  color: #888;
+  background: #f5f5f5;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: monospace;
+  letter-spacing: 0.3px;
+  width: fit-content;
+  line-height: 1.4;
+  margin-top: 1px;
+}
+
+.cvo-selected .cvo-code {
+  background: #d9f7be;
+  color: #389e0d;
+}
+
+/* Nút dùng */
+.cvo-apply-btn {
+  font-size: 11px;
+  font-weight: 500;
+  color: #ee4d2d;
+  background: transparent;
+  border: none;
+  border-left: 1px dashed #eee;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  min-width: 46px;
+  justify-content: center;
+  align-self: stretch;
+  /* kéo dài hết chiều cao card */
+}
+
+.cvo-apply-btn:hover {
+  background: #fff2f0;
+}
+
+.cvo-apply-btn.applied {
+  color: #52c41a;
+  border-left-color: #b7eb8f;
+  font-size: 14px;
+}
+
+.cvo-apply-btn.applied:hover {
+  background: #f6ffed;
+}
+
+/* Empty */
+.cvl-empty {
+  font-size: 12px;
+  color: #bbb;
+  padding: 4px 0;
+}
+
+/* Voucher không đủ điều kiện */
+.checkout-voucher-item.cvo-disabled {
+  opacity: 0.5;
+  border-color: #ddd;
+  background: #fafafa;
+}
+
+.cvo-disabled .cvo-stripe {
+  background: #ccc;
+}
+
+.cvo-disabled .cvo-title {
+  color: #aaa;
+}
+
+.cvo-warning {
+  font-size: 10px;
+  color: #ff7875;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cvo-apply-btn.disabled-btn {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.cvo-apply-btn.disabled-btn:hover {
+  background: transparent;
+}
+
+/* Tăng chiều cao để chứa thêm dòng cvo-warning */
+.checkout-voucher-item {
+  height: auto;
+  min-height: 78px;
+}
+
+.pv-save-btn.saved {
+  background: #00d738 !important;
+}
+
+.pending-order-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 20px;
+  border: 1.5px solid #f59e0b;
+  border-radius: 10px;
+  background: #fffbeb;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.pob-icon {
+  font-size: 28px;
+  color: #f59e0b;
+  flex-shrink: 0;
+}
+
+.pob-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.pob-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: #92400e;
+  margin-bottom: 4px;
+}
+
+.pob-meta {
+  font-size: 13px;
+  color: #78716c;
+}
+
+.pob-countdown {
+  color: #dc2626;
+  font-variant-numeric: tabular-nums;
+}
+
+.pob-actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.pob-btn-continue {
+  padding: 8px 18px;
+  background: #f59e0b;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pob-btn-continue:hover { background: #d97706; }
+
+.pob-btn-cancel {
+  padding: 8px 14px;
+  background: transparent;
+  color: #78716c;
+  border: 1px solid #d4d0ca;
+  border-radius: 6px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pob-btn-cancel:hover {
+  background: #f5f5f4;
+  color: #dc2626;
+  border-color: #dc2626;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  .pending-order-banner {
+    background: #292524;
+    border-color: #92400e;
+  }
+  .pob-title { color: #fcd34d; }
+  .pob-meta  { color: #a8a29e; }
+}
+
+.ot-btn-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.pending-hint {
+  font-size: 13px;
+  color: #92400e;
+  margin-top: 8px;
+  padding: 8px 12px;
+  background: #fffbeb;
+  border-left: 3px solid #f59e0b;
+  border-radius: 0 6px 6px 0;
+}
+
+.woocommerce-checkout{
+  background-color: white;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}

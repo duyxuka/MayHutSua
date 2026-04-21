@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useAuth } from '@/context/AuthContext';
 import { updateProfile, changePassword, getOrderByUserId, cancelOrder } from '@/lib/api';
 import toast from 'react-hot-toast';
+import './taikhoancuaban.css';
 
 const STATUS_MAP: Record<number, { label: string; cls: string }> = {
   0: { label: 'Chờ xác nhận', cls: 'bg-secondary' },
