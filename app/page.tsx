@@ -4,6 +4,7 @@ import { getImageUrl } from '@/lib/config';
 import TrangChuClient from './trangchu';
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mayhutsua.com.vn';
+export const dynamic = 'force-dynamic';
 export const revalidate = 0;
 
 export async function generateMetadata(): Promise<Metadata> {

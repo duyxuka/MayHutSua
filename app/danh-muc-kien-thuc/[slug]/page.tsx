@@ -12,7 +12,6 @@ export async function generateMetadata(
     const { slug } = await params;
     const categories = await getDanhMucCamNangListAll();
     const dm = categories?.find((c: any) => c.slug === slug);
-    console.log('Danh mục cẩm nang data:', dm);
     const title = dm?.titleSEO || dm?.ten || 'Danh mục cẩm nang';
     const description = dm?.descriptionSEO || '';
     const keywords = dm?.keyword || '';
