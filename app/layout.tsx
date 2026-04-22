@@ -8,25 +8,47 @@ import ChatWidget from '@/components/ChatWidget';
 import ZaloWidgets from '@/components/ZaloWidgets';
 import Script from 'next/script';
 import './globals.css';
+import '../public/assets/css/app.min.css';
+import '../public/assets/css/all.css';
+import '../public/assets/css/style.css';
+import { Quicksand, Source_Sans_3, Baloo_2, Nunito } from 'next/font/google';
+
+const quicksand = Quicksand({
+  subsets: ['vietnamese'],
+  display: 'swap',
+  variable: '--font-quicksand',
+});
+
+const sourceSans = Source_Sans_3({
+  subsets: ['vietnamese'],
+  display: 'swap',
+  variable: '--font-source-sans',
+});
+
+const baloo2 = Baloo_2({
+  subsets: ['vietnamese'],
+  display: 'swap',
+  weight: ['400', '600'],
+  variable: '--font-baloo-2',
+});
+
+const nunito = Nunito({
+  subsets: ['vietnamese'],
+  display: 'swap',
+  weight: ['400', '600'],
+  variable: '--font-nunito',
+});
 
 export const metadata: Metadata = {
   title: 'VietLifeStore - Máy hút sữa & Sản phẩm mẹ bé',
   description: 'Cửa hàng trực tuyến chuyên cung cấp sản phẩm dành cho trẻ em và mẹ bầu',
+  authors: [{ name: 'VietLife' }],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="vi">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com/"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com/"/>
-        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&amp;family=Source+Sans+3:ital,wght@0,200..900;1,200..900&amp;display=swap" rel="stylesheet"/>
-        <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&family=Nunito:wght@400;600&display=swap" rel="stylesheet"/>
-        <link rel="stylesheet" href="/assets/css/app.min.css" />
-        <link rel="stylesheet" href="/assets/css/all.css" />
-        <link rel="stylesheet" href="/assets/css/style.css" />
-      </head>
-      <body>
+      <body className={`${quicksand.variable} ${sourceSans.variable} ${baloo2.variable} ${nunito.variable}`}>
         <AuthProvider>
           <CartProvider>
             <Header />

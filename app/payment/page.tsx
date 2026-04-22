@@ -1,71 +1,55 @@
-'use client';
-import { useEffect, Suspense } from 'react';
-import { useSearchParams, useRouter } from 'next/navigation';
-import { useCart } from '@/context/CartContext';
-import { postPayment } from '@/lib/api';
+import type { Metadata } from 'next';
+import { getSeoByPageKey } from '@/lib/api';
+import { getImageUrl } from '@/lib/config';
+import KetQuaThanhToanPage from './payment';
 
-function PaymentContent() {
-  const searchParams = useSearchParams();
-  const router = useRouter();
-  const { clearCart } = useCart();
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://mayhutsua.com.vn';
 
-  const vnp_ResponseCode = searchParams.get('vnp_ResponseCode');
-  const vnp_TxnRef = searchParams.get('vnp_TxnRef');
-  const vnp_TransactionNo = searchParams.get('vnp_TransactionNo');
-  const vnp_Amount = searchParams.get('vnp_Amount');
-  const vnp_BankCode = searchParams.get('vnp_BankCode');
-  const vnp_TmnCode = searchParams.get('vnp_TmnCode');
-  const vnp_OrderInfo = searchParams.get('vnp_OrderInfo');
+export async function generateMetadata(): Promise<Metadata> {
+  try {
+    const seo = await getSeoByPageKey('KetQuaThanhToan');
+    const title = seo?.seoTitle || 'Kết quả thanh toán';
+    const description = seo?.seoDescription || '';
+    const ogTitle = seo?.ogTitle || title;
+    const ogDescription = seo?.ogDescription || description;
+    const ogImage = seo?.ogImageUrl
+      ? getImageUrl(seo.ogImageUrl)
+      : `${siteUrl}/default-og-image.jpg`;
 
-  const isSuccess = vnp_ResponseCode === '00';
-  const statusMessage = vnp_ResponseCode === '00'
-    ? 'Thanh toán thành công'
-    : vnp_ResponseCode === '24'
-    ? 'Bạn đã hủy giao dịch'
-    : 'Thanh toán thất bại';
-
-  useEffect(() => {
-    postPayment({
-      amount: vnp_Amount,
-      transactionId: vnp_TransactionNo,
-      paymentCode: vnp_TxnRef,
-      paymentInfor: vnp_OrderInfo,
-      status: vnp_ResponseCode
-    }).then(() => clearCart()).catch(console.error);
-  }, []);
-
-  return (
-    <div className="ot-checkout-wrapper space-top space-extra-bottom">
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-6">
-            <div className="card shadow p-4 rounded-4 text-center">
-              <h3 className="mb-4">Kết quả thanh toán</h3>
-              <div className="mb-3">
-                <img src={isSuccess ? '/assets/img/Success.gif' : '/assets/img/Error.gif'} width={80} alt="status" />
-              </div>
-              <h5 className={isSuccess ? 'text-success' : 'text-danger'}>{statusMessage}</h5>
-              <hr />
-              <p><b>Mã website:</b> {vnp_TmnCode}</p>
-              <p><b>Mã đơn hàng:</b> {vnp_TxnRef}</p>
-              <p><b>Mã giao dịch VNPAY:</b> {vnp_TransactionNo}</p>
-              <p><b>Số tiền thanh toán:</b> {(+(vnp_Amount ?? 0) / 100).toLocaleString('vi-VN')} VNĐ</p>
-              <p><b>Ngân hàng:</b> {vnp_BankCode}</p>
-              <button className="ot-btn w-100 mt-3" onClick={() => router.push('/san-pham')}>
-                Tiếp tục mua hàng
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+    return {
+      metadataBase: new URL(siteUrl),
+      title,
+      description,
+      keywords: seo?.seoKeywords || '',
+      robots: seo?.robots || 'noindex, nofollow',
+      openGraph: {
+        title: ogTitle,
+        description: ogDescription,
+        url: `${siteUrl}/payment`,
+        siteName: 'mayhutsua.com.vn',
+        images: [{ url: ogImage, width: 1200, height: 630, alt: ogTitle }],
+        type: 'website',
+        locale: 'vi_VN',
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description,
+        images: [ogImage],
+      },
+      alternates: {
+        canonical: `${siteUrl}/payment`,
+      },
+    };
+  } catch {
+    return {
+      title: 'Kết quả thanh toán',
+      description: 'Kết quả thanh toán tại mayhutsua.com.vn',
+      robots: 'noindex, nofollow',
+    };
+  }
 }
 
-export default function PaymentPage() {
-  return (
-    <Suspense fallback={<div className="container py-5 text-center">Đang xử lý...</div>}>
-      <PaymentContent />
-    </Suspense>
-  );
+export default function Page() {
+  return <KetQuaThanhToanPage />;
 }

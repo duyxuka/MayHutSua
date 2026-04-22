@@ -33,7 +33,11 @@ export default function Header() {
 
   // Close user menu on outside click
   useEffect(() => {
-    const handler = () => setIsUserMenuOpen(false);
+    const handler = (e: MouseEvent) => {
+      if (!(e.target as Element).closest('.user-menu')) {
+        setIsUserMenuOpen(false);
+      }
+    };
     document.addEventListener('click', handler);
     return () => document.removeEventListener('click', handler);
   }, []);
@@ -291,7 +295,7 @@ export default function Header() {
 
                     {/* User menu */}
                     <div className="user-menu">
-                      <button className="icon-btn user-btn" onClick={e => { e.stopPropagation(); setIsUserMenuOpen(v => !v); }}>
+                      <button className="icon-btn user-btn" onClick={() => setIsUserMenuOpen(v => !v)}>
                         <i className="far fa-user"></i>
                       </button>
                       {isUserMenuOpen && (
